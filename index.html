@@ -1,1 +1,417 @@
-<h1>Hello World Wide Web!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lily Tang - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Jersey 25', sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: white;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .star-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .star-btn:hover {
+            transform: scale(1.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links a:hover {
+            color: #ff69b4;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Page Display */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Contact Page */
+        .contact-section {
+            text-align: center;
+            padding: 80px 40px;
+        }
+
+        .contact-section h1 {
+            font-family: 'Jersey 25', sans-serif;
+            font-size: 72px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .contact-subtitle {
+            color: #ff69b4;
+            font-size: 14px;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-btn {
+            padding: 15px 40px;
+            border: 2px solid #333;
+            background: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .contact-btn:hover {
+            background: #333;
+            color: white;
+        }
+
+        /* Profile Page */
+        .profile-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 60px 0;
+        }
+
+        .profile-text h1 {
+            font-family: 'Jersey 25', sans-serif;
+            font-size: 56px;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .profile-text p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
+        /* Updated quote to match work-category */
+        .profile-quote {
+            color: #ff69b4;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 40px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .profile-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .profile-images img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Work Page */
+        .work-section h1 {
+            font-family: 'Jersey 25', sans-serif;
+            font-size: 56px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .work-category {
+            color: #ff69b4;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .work-item {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .work-item:hover {
+            border-color: #ff69b4;
+            transform: translateY(-5px);
+        }
+
+        .work-item-number {
+            font-family: 'Jersey 25', sans-serif;
+            font-size: 24px;
+            font-weight: 400;
+            color: #ff69b4;
+            margin-bottom: 15px;
+        }
+
+        .work-item-title {
+            font-family: 'Jersey 25', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .work-item-subtitle {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 80vh;
+            padding: 0 40px;
+            position: relative;
+        }
+
+        .hero-name {
+            font-family: 'Jersey 25', sans-serif;
+            font-size: 140px;
+            font-weight: 400;
+            text-align: right;
+            line-height: 1;
+            margin: 0;
+            color: #333;
+        }
+
+        .hero-text {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            text-align: right;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-section,
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .hero-name {
+                font-size: 60px;
+                text-align: center;
+            }
+
+            .hero-text {
+                font-size: 16px;
+                text-align: center;
+            }
+
+            .profile-quote {
+                font-size: 12px;
+                text-align: center;
+            }
+
+            nav {
+                padding: 15px 20px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <button class="star-btn" onclick="goHome()">⭐</button>
+        <ul class="nav-links">
+            <li><a href="#work" onclick="showPage('work')">WORK</a></li>
+            <li><a href="#profile" onclick="showPage('profile')">PROFILE</a></li>
+            <li><a href="#contact" onclick="showPage('contact')">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <!-- Pages Container -->
+    <div class="container">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1 class="hero-name">LILY TANG .</h1>
+                <p class="hero-text">BECAUSE FUN ISN'T A SIDE EFFECT- IT'S THE STRATEGY</p>
+            </div>
+        </div>
+
+        <!-- Work Page -->
+        <div id="work" class="page">
+            <div class="work-section">
+                <h1>WORK</h1>
+                <p class="work-category">MARKETING + PRODUCT DESIGN</p>
+                
+                <div class="work-grid">
+                    <div class="work-item">
+                        <div class="work-item-number">01</div>
+                        <div class="work-item-title">ONTARIO SKILLS</div>
+                        <div class="work-item-subtitle">DESIGN + DEVELOPMENT</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-item-number">02</div>
+                        <div class="work-item-title">MARKETING</div>
+                        <div class="work-item-subtitle">TURBO AI + DRAGONSHIFT VENTURES</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-item-number">03</div>
+                        <div class="work-item-title">STARLIT</div>
+                        <div class="work-item-subtitle">ELLE HACKS</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-item-number">04</div>
+                        <div class="work-item-title">RICHMOND HILL SOCCER CLUB</div>
+                        <div class="work-item-subtitle">OPERATIONS + MARKETING</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profile" class="page">
+            <div class="profile-section">
+                <div class="profile-text">
+                    <h1>PROFILE</h1>
+                    <p>Hi! I'm Lily, and a GBDA student at the University of Waterloo. My creativity is shaped by my hobbies and personality. I love creating work that's fun, meaningful, and made for everyone. Much of my experience comes from collaborating with teams and finding joy in what I do and who I am.</p>
+                    
+                </div>
+                <div class="profile-images">
+                    <img src="profile 1.JPG" alt="Profile 1">
+                    <img src="" alt="Profile 2">
+                    <img src="https://via.placeholder.com/300x300?text=Photo3" alt="Profile 3">
+                    <img src="https://via.placeholder.com/300x300?text=Photo4" alt="Profile 4">
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <div class="contact-section">
+                <h1>CONTACT</h1>
+                <p class="contact-subtitle">REACH OUT TO ME</p>
+                <div class="contact-buttons">
+                    <button class="contact-btn" onclick="alert('Email: lily@example.com')">Email</button>
+                    <button class="contact-btn" onclick="alert('LinkedIn Profile')">LinkedIn</button>
+                    <button class="contact-btn" onclick="alert('Phone: +1 (XXX) XXX-XXXX')">Phone number</button>
+                    <button class="contact-btn" onclick="alert('Instagram: @lilytang')">Instagram</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function goHome() {
+            showPage('home');
+        }
+    </script>
+</body>
+</html>
+
+
