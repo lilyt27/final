@@ -7,22 +7,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
 /* GLOBAL */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f5f5f5;
     color: #333;
 }
-h1,h2,h3,h4,h5,h6 {
-    font-family: 'Jersey 25', sans-serif;
-}
+h1, h2, h3, h4, h5, h6 { font-family: 'Jersey 25', sans-serif; }
 
 /* NAVIGATION */
 nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,9 +35,7 @@ nav {
     cursor: pointer;
     transition: transform 0.3s ease;
 }
-.star-btn:hover {
-    transform: scale(1.5);
-}
+.star-btn:hover { transform: scale(1.5); }
 .nav-links {
     display: flex;
     gap: 50px;
@@ -52,56 +48,33 @@ nav {
     font-size: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-family: 'Inter', sans-serif;
 }
-.nav-links a:hover {
-    color: #ff69b4;
-}
+.nav-links a:hover { color: #ff69b4; }
 
-/* CONTAINER & PAGES */
-.container {
+/* SECTIONS */
+.section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px;
-}
-.page {
-    display: none;
-}
-.page.active {
-    display: block;
+    padding: 80px 40px;
+    min-height: 80vh;
 }
 
 /* HERO */
-.hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 80vh;
-    padding: 0 40px;
-}
 .hero-name {
-    font-family: 'Jersey 25', sans-serif;
     font-size: 140px;
     font-weight: 400;
     text-align: right;
     line-height: 1;
-    color: #333;
 }
 .hero-text {
     font-size: 20px;
     font-weight: 600;
     text-align: right;
     margin-top: 10px;
-    letter-spacing: 1px;
-    color: #333;
 }
 
-/* WORK PAGE */
-.work-section h1 {
-    font-size: 56px;
-    font-weight: 400;
-    margin-bottom: 10px;
-}
+/* WORK */
+.work-section h1 { font-size: 56px; font-weight: 400; margin-bottom: 10px; }
 .work-category {
     color: #ff69b4;
     font-size: 12px;
@@ -114,7 +87,6 @@ nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: 40px;
 }
 .work-item {
     background: white;
@@ -125,47 +97,16 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 300px; /* fixed height for all items */
+    height: 300px;
 }
-.work-item:hover {
-    border-color: #ff69b4;
-    transform: translateY(-5px);
-}
-.work-item-number {
-    font-size: 24px;
-    color: #ff69b4;
-    margin-bottom: 10px;
-}
-.work-item-title {
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-.work-item-subtitle {
-    font-size: 11px;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-.work-item img {
-    width: 100%;
-    height: 100%;       /* fill the parent container */
-    object-fit: cover;  /* crop to cover entire area */
-    border-radius: 10px; /* match the work-item rounding */
-    margin: 0;     
-  }/* remove extra margin */
+.work-item:hover { border-color: #ff69b4; transform: translateY(-5px); }
 
-/* PROFILE PAGE */
+/* PROFILE */
 .profile-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
-    padding: 60px 0;
-}
-.profile-text h1 {
-    font-size: 56px;
-    font-weight: 400;
-    margin-bottom: 30px;
 }
 .profile-text p {
     font-size: 15px;
@@ -179,8 +120,8 @@ nav {
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 600;
-    margin-bottom: 20px;
     display: block;
+    margin-bottom: 20px;
 }
 .profile-images {
     display: grid;
@@ -194,16 +135,8 @@ nav {
     border-radius: 10px;
 }
 
-/* CONTACT PAGE */
-.contact-section {
-    text-align: center;
-    padding: 80px 40px;
-}
-.contact-section h1 {
-    font-size: 72px;
-    font-weight: 400;
-    margin-bottom: 20px;
-}
+/* CONTACT */
+.contact-section h1 { font-size: 72px; }
 .contact-subtitle {
     color: #ff69b4;
     font-size: 14px;
@@ -227,139 +160,80 @@ nav {
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
-.contact-btn:hover {
-    background: #333;
-    color: white;
-}
+.contact-btn:hover { background: #333; color: white; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    .profile-section,
-    .work-grid {
-        grid-template-columns: 1fr;
-    }
-    .contact-buttons {
-        grid-template-columns: 1fr;
-    }
-    .nav-links {
-        gap: 20px;
-    }
-    .hero-name {
-        font-size: 60px;
-        text-align: center;
-    }
-    .hero-text {
-        font-size: 16px;
-        text-align: center;
-    }
+    .profile-section, .work-grid { grid-template-columns: 1fr; }
+    .contact-buttons { grid-template-columns: 1fr; }
+    .nav-links { gap: 20px; }
+    .hero-name { font-size: 60px; text-align: center; }
+    .hero-text { font-size: 16px; text-align: center; }
 }
 </style>
 </head>
 <body>
+
 <!-- NAVIGATION -->
 <nav>
-    <button class="star-btn" onclick="goHome()">⭐</button>
+    <a href="#home" class="star-btn">⭐</a>
     <ul class="nav-links">
-        <li><a href="#work" onclick="showPage('work')">WORK</a></li>
-        <li><a href="#profile" onclick="showPage('profile')">PROFILE</a></li>
-        <li><a href="#contact" onclick="showPage('contact')">CONTACT</a></li>
+        <li><a href="#work">WORK</a></li>
+        <li><a href="#profile">PROFILE</a></li>
+        <li><a href="#contact">CONTACT</a></li>
     </ul>
 </nav>
 
-<!-- PAGES -->
-<div class="container">
-    <!-- HOME -->
-    <div id="home" class="page active">
-        <div class="hero">
-            <h1 class="hero-name">LILY TANG .</h1>
-            <p class="hero-text">BECAUSE FUN ISN'T A SIDE EFFECT- IT'S THE STRATEGY</p>
-        </div>
+<!-- HOME -->
+<section id="home" class="section">
+    <div class="hero">
+        <h1 class="hero-name">LILY TANG .</h1>
+        <p class="hero-text">BECAUSE FUN ISN'T A SIDE EFFECT- IT'S THE STRATEGY</p>
     </div>
+</section>
 
-    <!-- WORK -->
-    <div id="work" class="page">
-        <div class="work-section">
-            <h1>WORK</h1>
-            <p class="work-category">MARKETING + PRODUCT DESIGN</p>
-            <div class="work-grid">
-                <div class="work-item">
-                    <div class="work-item-number">01</div>
-                    <div class="work-item-title">ONTARIO SKILLS</div>
-                    <div class="work-item-subtitle">DESIGN + DEVELOPMENT</div>
-                </div>
-                <div class="work-item">
-                    <div class="work-item-number">02</div>
-                    <div class="work-item-title">MARKETING</div>
-                    <div class="work-item-subtitle">TURBO AI + DRAGONSHIFT VENTURES</div>
-                </div>
-                <div class="work-item">
-                    <div class="work-item-number">03</div>
-                    <div class="work-item-title">STARLIT</div>
-                    <div class="work-item-subtitle">ELLE HACKS</div>
-                </div>
-                <div class="work-item">
-                    <div class="work-item-number">04</div>
-                    <div class="work-item-title">RICHMOND HILL SOCCER CLUB</div>
-                    <div class="work-item-subtitle">OPERATIONS + MARKETING</div>
-                </div>
-                <div class="work-item">
-                    <img src="minecraft.PNG" alt="Photo 1">
-                </div>
-                <div class="work-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Photo 2">
-                </div>
-                <div class="work-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Photo 3">
-                </div>
-                <div class="work-item">
-                    <img src="https://via.placeholder.com/300x200" alt="Photo 4">
-                </div>
-            </div>
-        </div>
+<!-- WORK -->
+<section id="work" class="section work-section">
+    <h1>WORK</h1>
+    <p class="work-category">MARKETING + PRODUCT DESIGN</p>
+    <div class="work-grid">
+        <div class="work-item"><div class="work-item-number">01</div><div class="work-item-title">ONTARIO SKILLS</div><div class="work-item-subtitle">DESIGN + DEVELOPMENT</div></div>
+        <div class="work-item"><div class="work-item-number">02</div><div class="work-item-title">MARKETING</div><div class="work-item-subtitle">TURBO AI + DRAGONSHIFT VENTURES</div></div>
+        <div class="work-item"><div class="work-item-number">03</div><div class="work-item-title">STARLIT</div><div class="work-item-subtitle">ELLE HACKS</div></div>
+        <div class="work-item"><div class="work-item-number">04</div><div class="work-item-title">RICHMOND HILL SOCCER CLUB</div><div class="work-item-subtitle">OPERATIONS + MARKETING</div></div>
     </div>
+</section>
 
-    <!-- PROFILE -->
-    <div id="profile" class="page">
-        <div class="profile-section">
-            <div class="profile-text">
-                <h1>PROFILE</h1>
-                <p class="profile-category" style="color: #ff69b4;">ABOUT ME!</p>
-                <p>Hi! I'm Lily, and a GBDA student at the University of Waterloo. My creativity is shaped by my hobbies and personality. I love creating work that's fun, meaningful, and made for everyone. Much of my experience comes from collaborating with teams and finding joy in what I do and who I am.</p>
-            </div>
-            <div class="profile-images">
-                <img src="minecraft.PNG" alt="Profile 1">
-                <img src="soccer.JPG" alt="Sports">
-                <img src="canoe.JPG" alt="Profile 3">
-                <img src="vancouver.PNG" alt="Profile 4">
-            </div>
-        </div>
+<!-- PROFILE -->
+<section id="profile" class="section profile-section">
+    <div class="profile-text">
+        <h1>PROFILE</h1>
+        <p class="profile-category">ABOUT ME!</p>
+        <p>Hi! I'm Lily, a GBDA student at the University of Waterloo. My creativity is shaped by my hobbies and personality...</p>
     </div>
-
-    <!-- CONTACT -->
-    <div id="contact" class="page">
-        <div class="contact-section">
-            <h1>CONTACT</h1>
-            <p class="contact-subtitle">REACH OUT TO ME</p>
-            <div class="contact-buttons">
-                <button class="contact-btn" onclick="alert('Email: lilytang200627@gmail.com')">Email</button>
-                <button class="contact-btn" onclick="alert('LinkedIn Profile')">LinkedIn</button>
-                <button class="contact-btn" onclick="alert('Phone: +1 (XXX) XXX-XXXX')">Phone number</button>
-                <button class="contact-btn" onclick="alert('Instagram: @lilyt_27')">Instagram</button>
-            </div>
-        </div>
+    <div class="profile-images">
+        <img src="minecraft.PNG" alt="Profile 1">
+        <img src="soccer.JPG" alt="Profile 2">
+        <img src="canoe.JPG" alt="Profile 3">
+        <img src="vancouver.PNG" alt="Profile 4">
     </div>
-</div>
+</section>
 
-<script>
-function showPage(pageId) {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => page.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
-}
-function goHome() {
-    showPage('home');
-}
-</script>
+<!-- CONTACT -->
+<section id="contact" class="section contact-section">
+    <h1>CONTACT</h1>
+    <p class="contact-subtitle">REACH OUT TO ME</p>
+    <div class="contact-buttons">
+        <a href="mailto:lilytang200627@gmail.com" class="contact-btn">Email</a>
+        <a href="https://www.linkedin.com/in/YOUR-LINK" target="_blank" class="contact-btn">LinkedIn</a>
+        <a href="tel:+1XXXXXXXXXX" class="contact-btn">Phone</a>
+        <a href="https://instagram.com/lilyt_27" target="_blank" class="contact-btn">Instagram</a>
+    </div>
+</section>
+
 </body>
 </html>
