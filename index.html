@@ -8,11 +8,12 @@
 <style>
 /* GLOBAL */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { font-size: 16px; scroll-behavior: smooth; }
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f5f5f5;
     color: #333;
+    line-height: 1.6;
 }
 h1, h2, h3, h4, h5, h6 { font-family: 'Jersey 25', sans-serif; }
 
@@ -48,6 +49,7 @@ nav {
     font-size: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 .nav-links a:hover { color: #ff69b4; }
 
@@ -55,29 +57,59 @@ nav {
 .section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 40px;
+    padding: 80px 20px;
     min-height: 80vh;
 }
 
 /* HERO */
-.hero-name {
-    font-size: 140px;
-    font-weight: 400;
-    text-align: right;
-    line-height: 1;
+.hero {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff;
 }
+.hero-name {
+    font-size: 130px;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: 10px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.hero-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+.hero-images img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transform: rotate(-5deg);
+}
+.hero-images img:nth-child(1) { transform: rotate(-10deg); }
+.hero-images img:nth-child(2) { transform: rotate(5deg); }
+.hero-images img:nth-child(3) { transform: rotate(-5deg); }
 .hero-text {
-    font-size: 20px;
+    font-size: 1.25em; /* 20px */
     font-weight: 600;
-    text-align: right;
     margin-top: 10px;
+    color: #ff69b4; /* makes subtitle pink */
 }
 
+
 /* WORK */
-.work-section h1 { font-size: 56px; font-weight: 400; margin-bottom: 10px; }
+.work-section h1 { font-size: 2em; font-weight: 400; margin-bottom: 10px; }
 .work-category {
     color: #ff69b4;
-    font-size: 12px;
+    font-size: 0.75em;
     letter-spacing: 2px;
     margin-bottom: 50px;
     text-transform: uppercase;
@@ -85,7 +117,7 @@ nav {
 }
 .work-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 .work-item {
@@ -93,39 +125,43 @@ nav {
     border-radius: 15px;
     border: 2px solid #e0e0e0;
     padding: 25px;
-    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 300px;
+    transition: all 0.3s ease;
 }
-.work-item:hover { border-color: #ff69b4; transform: translateY(-5px); }
+.work-item:hover { 
+    border-color: #ff69b4; 
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
 
 /* PROFILE */
 .profile-section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 60px;
     align-items: center;
 }
+.profile-text h1 { font-size: 2em; margin-bottom: 10px; }
+.profile-category {
+    color: #ff69b4;
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
 .profile-text p {
-    font-size: 15px;
+    font-size: 0.9375em; 
     line-height: 1.8;
     color: #666;
     margin-bottom: 20px;
 }
-.profile-category {
-    color: #ff69b4;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 600;
-    display: block;
-    margin-bottom: 20px;
-}
 .profile-images {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 20px;
 }
 .profile-images img {
@@ -136,10 +172,10 @@ nav {
 }
 
 /* CONTACT */
-.contact-section h1 { font-size: 72px; }
+.contact-section h1 { font-size: 2.25em; margin-bottom: 10px; }
 .contact-subtitle {
     color: #ff69b4;
-    font-size: 14px;
+    font-size: 0.875em;
     margin-bottom: 60px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -147,32 +183,43 @@ nav {
 }
 .contact-buttons {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 30px;
     max-width: 600px;
     margin: 0 auto;
 }
 .contact-btn {
     padding: 15px 40px;
-    border: 2px solid #333;
+    border: 2px solid #e0e0e0; /* light grey like work/profile cards */
     background: white;
     border-radius: 30px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.875em;
     font-weight: 600;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    color: #ff69b4; /* pink text */
+    transition: all 0.3s ease;
 }
-.contact-btn:hover { background: #333; color: white; }
+
+.contact-btn:hover {
+    border-color: #ff69b4; /* pink border on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* subtle shadow */
+    background: white; /* ensure background stays white */
+    color: #ff69b4; /* ensure text stays pink on hover */
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .profile-section, .work-grid { grid-template-columns: 1fr; }
     .contact-buttons { grid-template-columns: 1fr; }
     .nav-links { gap: 20px; }
-    .hero-name { font-size: 60px; text-align: center; }
-    .hero-text { font-size: 16px; text-align: center; }
+    .hero-name { font-size: 2em; }
+    .hero-text { font-size: 1em; }
+    .hero-images img { width: 40px; height: 40px; }
 }
 </style>
 </head>
@@ -189,11 +236,18 @@ nav {
 </nav>
 
 <!-- HOME -->
-<section id="home" class="section">
-    <div class="hero">
-        <h1 class="hero-name">LILY TANG .</h1>
-        <p class="hero-text">BECAUSE FUN ISN'T A SIDE EFFECT- IT'S THE STRATEGY</p>
-    </div>
+<section id="home" class="section hero">
+  <h1 class="hero-name">LILY TANG</h1>
+
+  <div class="hero-images">
+    <img src="minecraft.PNG" alt="Project 1">
+    <img src="soccer.JPG" alt="Project 2">
+    <img src="canoe.JPG" alt="Project 3">
+  </div>
+
+  <p class="hero-text">
+    BECAUSE FUN ISN'T A SIDE EFFECT — IT'S THE STRATEGY
+  </p>
 </section>
 
 <!-- WORK -->
@@ -201,10 +255,26 @@ nav {
     <h1>WORK</h1>
     <p class="work-category">MARKETING + PRODUCT DESIGN</p>
     <div class="work-grid">
-        <div class="work-item"><div class="work-item-number">01</div><div class="work-item-title">ONTARIO SKILLS</div><div class="work-item-subtitle">DESIGN + DEVELOPMENT</div></div>
-        <div class="work-item"><div class="work-item-number">02</div><div class="work-item-title">MARKETING</div><div class="work-item-subtitle">TURBO AI + DRAGONSHIFT VENTURES</div></div>
-        <div class="work-item"><div class="work-item-number">03</div><div class="work-item-title">STARLIT</div><div class="work-item-subtitle">ELLE HACKS</div></div>
-        <div class="work-item"><div class="work-item-number">04</div><div class="work-item-title">RICHMOND HILL SOCCER CLUB</div><div class="work-item-subtitle">OPERATIONS + MARKETING</div></div>
+        <div class="work-item">
+            <div class="work-item-number">01</div>
+            <div class="work-item-title">ONTARIO SKILLS</div>
+            <div class="work-item-subtitle">DESIGN + DEVELOPMENT</div>
+        </div>
+        <div class="work-item">
+            <div class="work-item-number">02</div>
+            <div class="work-item-title">MARKETING</div>
+            <div class="work-item-subtitle">TURBO AI + DRAGONSHIFT VENTURES</div>
+        </div>
+        <div class="work-item">
+            <div class="work-item-number">03</div>
+            <div class="work-item-title">STARLIT</div>
+            <div class="work-item-subtitle">ELLE HACKS</div>
+        </div>
+        <div class="work-item">
+            <div class="work-item-number">04</div>
+            <div class="work-item-title">RICHMOND HILL SOCCER CLUB</div>
+            <div class="work-item-subtitle">OPERATIONS + MARKETING</div>
+        </div>
     </div>
 </section>
 
@@ -212,7 +282,7 @@ nav {
 <section id="profile" class="section profile-section">
     <div class="profile-text">
         <h1>PROFILE</h1>
-        <p class="profile-category">ABOUT ME!</p>
+        <span class="profile-category">ABOUT ME!</span>
         <p>Hi! I'm Lily, a GBDA student at the University of Waterloo. My creativity is shaped by my hobbies and personality...</p>
     </div>
     <div class="profile-images">
@@ -229,7 +299,7 @@ nav {
     <p class="contact-subtitle">REACH OUT TO ME</p>
     <div class="contact-buttons">
         <a href="mailto:lilytang200627@gmail.com" class="contact-btn">Email</a>
-        <a href="www.linkedin.com/in/lily-tang-0535572aa"_blank" class="contact-btn">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/lily-tang-0535572aa" target="_blank" class="contact-btn">LinkedIn</a>
         <a href="tel:+1XXXXXXXXXX" class="contact-btn">Phone</a>
         <a href="https://instagram.com/lilyt_27" target="_blank" class="contact-btn">Instagram</a>
     </div>
@@ -237,5 +307,3 @@ nav {
 
 </body>
 </html>
-
-
