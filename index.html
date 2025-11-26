@@ -35,6 +35,8 @@ nav {
     font-size: 28px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    text-decoration: none; /* removes underline */
+    color: inherit; /* keeps text color */
 }
 .star-btn:hover { transform: scale(1.5); }
 .nav-links {
@@ -92,18 +94,27 @@ nav {
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    transform: rotate(-5deg);
-}
-.hero-images img:nth-child(1) { transform: rotate(-10deg); }
-.hero-images img:nth-child(2) { transform: rotate(5deg); }
-.hero-images img:nth-child(3) { transform: rotate(-5deg); }
-.hero-text {
-    font-size: 1.25em; /* 20px */
-    font-weight: 600;
-    margin-top: 10px;
-    color: #ff69b4; /* makes subtitle pink */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+/* Preserve individual rotations AND add hover effect */
+.hero-images img:nth-child(1) { transform: rotate(-10deg); }
+.hero-images img:nth-child(1):hover { transform: rotate(-10deg) scale(1.05); }
+
+.hero-images img:nth-child(2) { transform: rotate(5deg); }
+.hero-images img:nth-child(2):hover { transform: rotate(5deg) scale(1.05); }
+
+.hero-images img:nth-child(3) { transform: rotate(-5deg); }
+.hero-images img:nth-child(3):hover { transform: rotate(-5deg) scale(1.05); }
+
+.hero-images img:hover { box-shadow: 0 10px 16px rgba(0,0,0,0.25); }
+
+.hero-text {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #ff69b4;
+}
 
 /* WORK */
 .work-section h1 { font-size: 2em; font-weight: 400; margin-bottom: 10px; }
@@ -131,9 +142,9 @@ nav {
     height: 300px;
     transition: all 0.3s ease;
 }
-.work-item:hover { 
-    border-color: #ff69b4; 
-    transform: translateY(-5px); 
+.work-item:hover {
+    border-color: #ff69b4;
+    transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
@@ -154,7 +165,7 @@ nav {
     margin-bottom: 20px;
 }
 .profile-text p {
-    font-size: 0.9375em; 
+    font-size: 0.9375em;
     line-height: 1.8;
     color: #666;
     margin-bottom: 20px;
@@ -190,7 +201,7 @@ nav {
 }
 .contact-btn {
     padding: 15px 40px;
-    border: 2px solid #e0e0e0; /* light grey like work/profile cards */
+    border: 2px solid #e0e0e0;
     background: white;
     border-radius: 30px;
     cursor: pointer;
@@ -199,18 +210,16 @@ nav {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    color: #ff69b4; /* pink text */
+    color: #ff69b4;
     transition: all 0.3s ease;
 }
-
 .contact-btn:hover {
-    border-color: #ff69b4; /* pink border on hover */
+    border-color: #ff69b4;
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2); /* subtle shadow */
-    background: white; /* ensure background stays white */
-    color: #ff69b4; /* ensure text stays pink on hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    background: white;
+    color: #ff69b4;
 }
-
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -258,22 +267,22 @@ nav {
         <div class="work-item">
             <div class="work-item-number">01</div>
             <div class="work-item-title">ONTARIO SKILLS</div>
-            <div class="work-item-subtitle">DESIGN + DEVELOPMENT</div>
+            <div class="work-item-subtitle">Tv & Video Production</div>
         </div>
         <div class="work-item">
             <div class="work-item-number">02</div>
             <div class="work-item-title">MARKETING</div>
-            <div class="work-item-subtitle">TURBO AI + DRAGONSHIFT VENTURES</div>
+            <div class="work-item-subtitle">Turbo AI + Dragonfruit Ventures</div>
         </div>
         <div class="work-item">
             <div class="work-item-number">03</div>
             <div class="work-item-title">STARLIT</div>
-            <div class="work-item-subtitle">ELLE HACKS</div>
+            <div class="work-item-subtitle">Elle Hacks Hackathon</div>
         </div>
         <div class="work-item">
             <div class="work-item-number">04</div>
             <div class="work-item-title">RICHMOND HILL SOCCER CLUB</div>
-            <div class="work-item-subtitle">OPERATIONS + MARKETING</div>
+            <div class="work-item-subtitle">Operations & Marketing</div>
         </div>
     </div>
 </section>
@@ -283,7 +292,7 @@ nav {
     <div class="profile-text">
         <h1>PROFILE</h1>
         <span class="profile-category">ABOUT ME!</span>
-        <p>Hi! I'm Lily, a GBDA student at the University of Waterloo. My creativity is shaped by my hobbies and personality...</p>
+        <p>Hi! I’m Lily, and a GBDA student at the University of Waterloo. My creativity is shaped by my hobbies and personality. I love creating work that’s fun, meaningful, and made for everyone. Much of my experience comes from collaborating with teams and finding joy in what I do and who I am.</p>
     </div>
     <div class="profile-images">
         <img src="minecraft.PNG" alt="Profile 1">
