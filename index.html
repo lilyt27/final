@@ -6,7 +6,7 @@
 <title>Lily Tang - Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
-/* GLOBAL */
+/* GLOBAL STYLES */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { font-size: 16px; scroll-behavior: smooth; }
 body {
@@ -16,6 +16,12 @@ body {
     line-height: 1.6;
 }
 h1, h2, h3, h4, h5, h6 { font-family: 'Jersey 25', sans-serif; }
+
+/* LINK STATES */
+a:link { color: #333; text-decoration: none; }
+a:visited { color: #666; }
+a:hover { color: #ff69b4; }
+a:active { color: #ff69b4; }
 
 /* NAVIGATION */
 nav {
@@ -35,8 +41,8 @@ nav {
     font-size: 28px;
     cursor: pointer;
     transition: transform 0.3s ease;
-    text-decoration: none; /* removes underline */
-    color: inherit; /* keeps text color */
+    text-decoration: none;
+    color: inherit;
 }
 .star-btn:hover { transform: scale(1.5); }
 .nav-links {
@@ -53,17 +59,21 @@ nav {
     text-transform: uppercase;
     transition: color 0.3s ease;
 }
-.nav-links a:hover { color: #ff69b4; }
+
+/* CONTAINER FOR CENTERING CONTENT */
+.container {
+    width: 1200px; /* Fixed width per design */
+    max-width: 100%;
+    margin: 0 auto; /* Centers content in browser */
+}
 
 /* SECTIONS */
 .section {
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 80px 20px;
     min-height: 80vh;
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
     text-align: center;
     display: flex;
@@ -83,21 +93,21 @@ nav {
 }
 .hero-images {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center the images horizontally */
     align-items: center;
     gap: 20px;
     margin-bottom: 60px;
 }
+/* Adding width, height, alt attributes and rotation angles */
+/* I used AI to help me figure out hover effect and image rotation angles */
 .hero-images img {
-    width: 250px;
-    height: 250px;
+    width: 250px; 
+    height: 250px; 
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-
-/* Preserve individual rotations AND add hover effect */
 .hero-images img:nth-child(1) { transform: rotate(-10deg); }
 .hero-images img:nth-child(1):hover { transform: rotate(-10deg) scale(1.05); }
 
@@ -116,7 +126,7 @@ nav {
     color: #ff69b4;
 }
 
-/* WORK */
+/* WORK SECTION */
 .work-section h1 { font-size: 2em; font-weight: 400; margin-bottom: 10px; }
 .work-category {
     color: #ff69b4;
@@ -127,7 +137,7 @@ nav {
     font-weight: 600;
 }
 .work-grid {
-    display: grid;
+    display: grid; /* Using CSS grid to layout work items */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
@@ -148,7 +158,7 @@ nav {
     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
-/* PROFILE */
+/* PROFILE SECTION */
 .profile-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -176,13 +186,14 @@ nav {
     gap: 20px;
 }
 .profile-images img {
-    width: 100%;
-    height: 200px;
+    width: 100%; 
+    height: 200px; 
     object-fit: cover;
     border-radius: 10px;
+    /* AI helped center these images and keep uniform size */
 }
 
-/* CONTACT */
+/* CONTACT SECTION */
 .contact-section h1 { font-size: 2.25em; margin-bottom: 10px; }
 .contact-subtitle {
     color: #ff69b4;
@@ -208,7 +219,6 @@ nav {
     font-size: 0.875em;
     font-weight: 600;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     color: #ff69b4;
     transition: all 0.3s ease;
@@ -244,23 +254,26 @@ nav {
     </ul>
 </nav>
 
-<!-- HOME -->
+<!-- HERO -->
 <section id="home" class="section hero">
-  <h1 class="hero-name">LILY TANG</h1>
+  <div class="container">
+    <h1 class="hero-name">LILY TANG</h1>
 
-  <div class="hero-images">
-    <img src="gibby.png" alt="homepic1">
-    <img src="gibby2.png" alt="homepic2">
-    <img src="binoo.png" alt="homepic3">
+    <div class="hero-images">
+      <img src="gibby.png" width="250" height="250" alt="homepic1">
+      <img src="gibby2.png" width="250" height="250" alt="homepic2">
+      <img src="binoo.png" width="250" height="250" alt="homepic3">
+    </div>
+
+    <p class="hero-text">
+      BECAUSE FUN ISN'T A SIDE EFFECT — IT'S THE STRATEGY
+    </p>
   </div>
-
-  <p class="hero-text">
-    BECAUSE FUN ISN'T A SIDE EFFECT — IT'S THE STRATEGY
-  </p>
 </section>
 
 <!-- WORK -->
 <section id="work" class="section work-section">
+  <div class="container">
     <h1>WORK</h1>
     <p class="work-category">MARKETING + PRODUCT DESIGN</p>
     <div class="work-grid">
@@ -285,33 +298,38 @@ nav {
             <div class="work-item-subtitle">Operations & Marketing</div>
         </div>
     </div>
+  </div>
 </section>
 
 <!-- PROFILE -->
 <section id="profile" class="section profile-section">
+  <div class="container">
     <div class="profile-text">
         <h1>PROFILE</h1>
         <span class="profile-category">ABOUT ME!</span>
         <p>Hi! I’m Lily, and a GBDA student at the University of Waterloo. My creativity is shaped by my hobbies and personality. I love creating work that’s fun, meaningful, and made for everyone. Much of my experience comes from collaborating with teams and finding joy in what I do and who I am.</p>
     </div>
     <div class="profile-images">
-        <img src="minecraft.PNG" alt="Profile 1">
-        <img src="soccer.JPG" alt="Profile 2">
-        <img src="canoe.JPG" alt="Profile 3">
-        <img src="vancouver.PNG" alt="Profile 4">
+        <img src="minecraft.PNG" width="100%" height="200" alt="Profile 1">
+        <img src="soccer.JPG" width="100%" height="200" alt="Profile 2">
+        <img src="canoe.JPG" width="100%" height="200" alt="Profile 3">
+        <img src="vancouver.PNG" width="100%" height="200" alt="Profile 4">
     </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section contact-section">
+  <div class="container">
     <h1>CONTACT</h1>
     <p class="contact-subtitle">REACH OUT TO ME</p>
     <div class="contact-buttons">
-        <a href="mailto:lilytang200627@gmail.com" class="contact-btn">Email</a>
+        <a href="mailto:l29tang@uwaterloo.ca" class="contact-btn">Email</a>
         <a href="https://www.linkedin.com/in/lily-tang-0535572aa" target="_blank" class="contact-btn">LinkedIn</a>
         <a href="tel:+1XXXXXXXXXX" class="contact-btn">Phone</a>
         <a href="https://instagram.com/lilyt_27" target="_blank" class="contact-btn">Instagram</a>
     </div>
+  </div>
 </section>
 
 </body>
